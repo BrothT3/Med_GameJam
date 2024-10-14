@@ -55,10 +55,10 @@ public class PlayerMovement : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             }
 
-            Debug.Log($"{currentSpeed}," + (maxSpeed - (maxSpeed / 4)));
+            //Debug.Log($"{currentSpeed}," + (maxSpeed - (maxSpeed / 4)));
             if (currentSpeed > maxSpeed - (maxSpeed / 4))
             {
-                Debug.Log("test");
+            
                 float forceMultiplier = defaultForce.y * maxSpeed - (currentSpeed / maxSpeed);
                 forceToAdd.y = forceMultiplier; 
             }
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
                 forceToAdd = defaultForce;
                 
             }
-            Debug.Log(forceToAdd.y);
+            //Debug.Log(forceToAdd.y);
             
             GetComponent<Rigidbody2D>().AddForce(forceToAdd);
         }
