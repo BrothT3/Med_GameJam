@@ -16,23 +16,15 @@ public class PlayerMovement : MonoBehaviour
 
     // Start is called before the first frame update
 
-    void Start()
-    {
-
-    }
     private void Update()
     {
         Playermovement();
         PlayerTiltLerp();
     }
-    private void FixedUpdate()
-    {
-
-    }
 
     void Playermovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && spaceReleased)
+        if (Input.GetKeyDown(KeyCode.Space) && spaceReleased || Input.GetKeyDown(KeyCode.Mouse0) && spaceReleased)
         {
             spaceReleased = false;
 
