@@ -1,27 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     float currentSpeed; // the speed the plane is moving at currently
-    float maxSpeed = 500; // the max speed the plane should be able to accel
-    Vector3 defaultForce = new Vector3(0, 250, 0); // how much "power" the engine of the plane has to push it forwards, this value will need tweaked to fit your game
+    public float maxSpeed = 10; // the max speed the plane should be able to accel
+    public float defaultForce = 550; // how much "power" the engine of the plane has to push it forwards, this value will need tweaked to fit your game
     Vector3 forceToAdd = Vector3.zero;
     bool spaceReleased = true;
-    
+    public float maxTiltAngle;
+    public float tiltSpeed;
+
     // Start is called before the first frame update
 
     void Start()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    }
+    private void Update()
     {
         Playermovement();
+        PlayerTiltLerp();
+    }
+    private void FixedUpdate()
+    {
+
     }
 
     void Playermovement()
@@ -29,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && spaceReleased)
         {
             spaceReleased = false;
-            
+
             PlayerAddForce();
 
         }
@@ -39,38 +45,53 @@ public class PlayerMovement : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = new Vector3(0, -3f, 0);
         }
-        if ((screenPos.y - 45f) < 0)
+        if ((screenPos.y + 100f) < 0)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 5f, 0);
+            GetComponent<Rigidbody2D>().velocity = new Vector3(0, 3.5f, 0);
+        }
+
+        if (GetComponent<Rigidbody2D>().velocity.magnitude > maxSpeed)
+        {
+            GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxSpeed;
+            Debug.Log(GetComponent<Rigidbody2D>().velocity.y);
         }
     }
 
     void PlayerAddForce()
     {
         {
-            
-            currentSpeed = GetComponent<Rigidbody2D>().velocity.magnitude;
-            if (GetComponent<Rigidbody2D>().velocity.y < 0)
-            {
-                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            }
-
-            //Debug.Log($"{currentSpeed}," + (maxSpeed - (maxSpeed / 4)));
-            if (currentSpeed > maxSpeed - (maxSpeed / 4))
-            {
-            
-                float forceMultiplier = defaultForce.y * maxSpeed - (currentSpeed / maxSpeed);
-                forceToAdd.y = forceMultiplier; 
-            }
-            else 
-            {
-                forceToAdd = defaultForce;
-                
-            }
+            forceToAdd = new Vector3(0, defaultForce, 0);
             //Debug.Log(forceToAdd.y);
-            
+
+
             GetComponent<Rigidbody2D>().AddForce(forceToAdd);
         }
+    }
+    void PlayerTiltLerp()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        // Get the current velocity on the Y axis
+        float verticalVelocity = rb.velocity.y;
+
+        // Calculate the target tilt angle based on the vertical velocity
+        // Tilts upwards if moving up, downwards if moving down
+        float targetTiltAngle = Mathf.Clamp(verticalVelocity * maxTiltAngle / maxSpeed, -maxTiltAngle, maxTiltAngle);
+
+        // Get the current rotation (z-axis) and smoothly interpolate to the target angle
+        float currentTiltAngle = transform.eulerAngles.z;
+
+        // Adjust angle from 0-360 to -180 to 180 for proper Lerp behavior
+        if (currentTiltAngle > 180)
+        {
+            currentTiltAngle -= 360;
+        }
+
+        // Use Mathf.Lerp to smoothly transition between current and target tilt
+        float newTiltAngle = Mathf.Lerp(currentTiltAngle, targetTiltAngle, Time.deltaTime * tiltSpeed);
+
+        // Apply the new rotation to the player object (on the z-axis for 2D)
+        transform.rotation = Quaternion.Euler(0, 0, newTiltAngle);
     }
 
 }
