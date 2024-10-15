@@ -26,13 +26,22 @@ public class TraversalManager : MonoBehaviour
         {
 
         }
+        
         float yPos = Random.Range(Screen.height/4, (Screen.height/4 + Screen.height/2));
-        obj.transform.position = new Vector2 ( Screen.width + 250, yPos);
+        var obPos = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width + 500, yPos));
+        Debug.Log(yPos);
+        obj.transform.position = obPos;
         
     }
 
     void MoveObstacle()
     {
-        objects[obInd].transform.position = new Vector2(transform.position.x - 1, 0);
+        Vector3 obPos = new Vector3(objects[obInd].transform.position.x-0.2f, objects[obInd].transform.position.y, 0);
+        objects[obInd].transform.position = obPos;
+        if (Camera.main.WorldToScreenPoint(obPos).x < -500 && obInd+1 < objects.Count)
+        {
+            obInd++;
+            SelectObstacle();
+        }
     }
 }
