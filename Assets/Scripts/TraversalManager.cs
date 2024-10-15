@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class TraversalManager : MonoBehaviour
 {
     public List<GameObject> objects = new List<GameObject>();
     int obInd = 0;
-    
+    public GameObject TubeObj;
     void Start()
     {
         SelectObstacle();
@@ -43,5 +44,17 @@ public class TraversalManager : MonoBehaviour
             obInd++;
             SelectObstacle();
         }
+    }
+    void GenerateTubes()
+    {
+        GameObject to = Instantiate(TubeObj);
+        
+        SpriteShapeController ssc  = to.GetComponent<SpriteShapeController>();
+        
+        ssc.spline.SetPosition(1, new Vector3(ssc.spline.GetPosition(1).x, Random.Range(-2f, 2f)));
+        ssc.spline.SetPosition(2, new Vector3(ssc.spline.GetPosition(2).x, Random.Range(-2f, 2f)));
+        ssc.spline.SetPosition(3, new Vector3(ssc.spline.GetPosition(3).x, Random.Range(-2f, 2f)));
+        ssc.spline.SetPosition(4, new Vector3(ssc.spline.GetPosition(4).x, Random.Range(-2f, 2f)));
+
     }
 }
