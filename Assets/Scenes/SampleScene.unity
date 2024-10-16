@@ -1662,15 +1662,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: featherColors.Array.data[1].b
-      value: 0.06710574
+      value: 0.080767184
       objectReference: {fileID: 0}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: featherColors.Array.data[1].g
-      value: 0.20712082
+      value: 0.22562306
       objectReference: {fileID: 0}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: featherColors.Array.data[1].r
-      value: 0.49056602
+      value: 0.5188679
       objectReference: {fileID: 0}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: featherColors.Array.data[2].a
@@ -1678,15 +1678,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: featherColors.Array.data[2].b
-      value: 0.1262905
+      value: 0.14509805
       objectReference: {fileID: 0}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: featherColors.Array.data[2].g
-      value: 0.3260057
+      value: 0.427451
       objectReference: {fileID: 0}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: featherColors.Array.data[2].r
-      value: 0.6226415
+      value: 0.83921576
       objectReference: {fileID: 0}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: featherColors.Array.data[3].a

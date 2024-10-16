@@ -30,6 +30,10 @@ public class LightCollision : MonoBehaviour
         if (tubeContact){
             AddFeatherScore();
         }
+
+        if (GameManager.Instance.barFillPermanent.sizeDelta.x != featherPoints * 0.49f){
+            GameManager.Instance.barFillPermanent.sizeDelta = new Vector2(Mathf.Lerp(GameManager.Instance.barFillPermanent.sizeDelta.x, featherPoints * 0.49f, 5f * Time.deltaTime), 24);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D c){
@@ -45,11 +49,10 @@ public class LightCollision : MonoBehaviour
             featherPoints += (int)pointsToAdd;
             if (pointsToAdd > 0.49f){
                 GameObject popUpText = Instantiate(popUpTextPrefab, transform.position + new Vector3(2, 0, 0), transform.rotation);
-                popUpText.GetComponentInChildren<TextMeshPro>().text = pointsToAdd.ToString("0");
+                popUpText.GetComponentInChildren<TextMeshPro>().text = "+" + pointsToAdd.ToString("0");
             }
             pointsToAdd = 0;
             anim.SetBool("TouchingTube", false);
-            GameManager.Instance.barFillPermanent.sizeDelta = new Vector2(featherPoints * 0.49f, 24);
         }
     }
 
