@@ -15,7 +15,7 @@ public class FjerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hand = GameObject.FindGameObjectWithTag("GoodHandGrab").transform;
+       
     }
 
     // Update is called once per frame
