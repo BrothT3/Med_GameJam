@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     bool spaceReleased = true;
     public float maxTiltAngle;
     public float tiltSpeed;
+    public Animator anim;
 
     // Start is called before the first frame update
 
@@ -57,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
 
             GetComponent<Rigidbody2D>().AddForce(forceToAdd);
+            anim.SetTrigger("WingFlap");
         }
     }
     void PlayerTiltLerp()
