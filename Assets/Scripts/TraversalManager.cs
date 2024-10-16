@@ -14,18 +14,19 @@ public class TraversalManager : MonoBehaviour
 
     void Start()
     {
-        
+        GenerateTubes();
+        SelectObstacle();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        MoveObstacle();
 
     }
 
 
-    public void SelectObstacle()
+    void SelectObstacle()
     {
 
         GameObject obj = objects[obInd];
@@ -42,20 +43,20 @@ public class TraversalManager : MonoBehaviour
 
     }
 
-    public void MoveObstacle()
+    void MoveObstacle()
     {
         if (objects.Count <= 0)
             return;
 
         Vector3 obPos = new Vector3(objects[obInd].transform.position.x - tubeSpeed, objects[obInd].transform.position.y, 0);
         objects[obInd].transform.position = obPos;
-        if (Camera.main.WorldToScreenPoint(obPos).x < -785 && obInd + 1 < objects.Count)
+        if (Camera.main.WorldToScreenPoint(obPos).x < -500 && obInd + 1 < objects.Count)
         {
             obInd++;
             SelectObstacle();
         }
     }
-    public void GenerateTubes()
+    void GenerateTubes()
     {
         for (int i = 0; i < Tubes; i++)
         {

@@ -13,19 +13,26 @@ public class PlayerMovement : MonoBehaviour
     bool spaceReleased = true;
     public float maxTiltAngle;
     public float tiltSpeed;
-    public Animator anim;
 
     // Start is called before the first frame update
 
+    void Start()
+    {
+
+    }
     private void Update()
     {
         Playermovement();
         PlayerTiltLerp();
     }
+    private void FixedUpdate()
+    {
+
+    }
 
     void Playermovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && spaceReleased || Input.GetKeyDown(KeyCode.Mouse0) && spaceReleased)
+        if (Input.GetKeyDown(KeyCode.Space) && spaceReleased)
         {
             spaceReleased = false;
 
@@ -58,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
 
 
             GetComponent<Rigidbody2D>().AddForce(forceToAdd);
-            anim.SetTrigger("WingFlap");
         }
     }
     void PlayerTiltLerp()
