@@ -267,10 +267,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1845398260}
-  - component: {fileID: 1845398259}
   - component: {fileID: 1845398258}
-  - component: {fileID: 1845398261}
   - component: {fileID: 1845398263}
+  - component: {fileID: 1845398259}
+  - component: {fileID: 1845398261}
   - component: {fileID: 1845398262}
   - component: {fileID: 1845398264}
   m_Layer: 0
@@ -447,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714348160292987498766af571c38df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!95 &1845398264
 Animator:
   serializedVersion: 5
