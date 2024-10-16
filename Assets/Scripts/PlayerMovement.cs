@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float tiltSpeed;
     public Animator anim;
     public bool MovingPermitted;
+    [SerializeField] private AudioSource jumpSound;
     // Start is called before the first frame update
 
     private void Update()
@@ -28,9 +29,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && spaceReleased || Input.GetKeyDown(KeyCode.Mouse0) && spaceReleased)
         {
             spaceReleased = false;
+            jumpSound.Play();
 
             PlayerAddForce();
-
         }
         spaceReleased = true;
         var screenPos = Camera.main.WorldToScreenPoint(transform.position);

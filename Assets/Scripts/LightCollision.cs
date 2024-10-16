@@ -13,22 +13,17 @@ public class LightCollision : MonoBehaviour
     private bool tubeContact;
     float pointsToAdd = 0;
     private Animator anim;
-    [SerializeField] private RectTransform barFillTemporary;
-    [SerializeField] private RectTransform barFillPermanent;
     [SerializeField] private int checkpoint;
-    [SerializeField] private GameObject[] feathers;
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private Color[] featherColors;
     [SerializeField] private GameObject popUpTextPrefab;
 
     private void Start(){
         bc = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-        foreach (GameObject feather in feathers){
+        foreach (GameObject feather in GameManager.Instance.feathers){
             feather.SetActive(false);
         }
-        feathers[0].SetActive(true);
-        barFillPermanent.GetComponent<Image>().color = featherColors[0];
+        GameManager.Instance.feathers[0].SetActive(true);
+        GameManager.Instance.barFillPermanent.GetComponent<Image>().color = GameManager.Instance.featherColors[0];
     }
 
     private void Update(){
@@ -54,29 +49,32 @@ public class LightCollision : MonoBehaviour
             }
             pointsToAdd = 0;
             anim.SetBool("TouchingTube", false);
-            barFillPermanent.sizeDelta = new Vector2(featherPoints * 0.49f, 24);
+            GameManager.Instance.barFillPermanent.sizeDelta = new Vector2(featherPoints * 0.49f, 24);
         }
     }
 
     public void AddFeatherScore(){
         pointsToAdd += Time.deltaTime * 10f;
-        scoreText.text = (pointsToAdd + featherPoints).ToString("0") + "/200";
-        barFillTemporary.sizeDelta = new Vector2((pointsToAdd + featherPoints) * 0.49f, 24);
-        if (checkpoint == 0 && pointsToAdd + featherPoints > 50){
+        GameManager.Instance.scoreText.text = (pointsToAdd + featherPoints).ToString("0") + "/200";
+        GameManager.Instance.barFillTemporary.sizeDelta = new Vector2((pointsToAdd + featherPoints) * 0.49f, 24);
+        if (checkpoint == 0 && pointsToAdd + featherPoints >= 50){
             checkpoint = 1;
-            feathers[0].SetActive(false);
-            feathers[1].SetActive(true);
-            barFillPermanent.GetComponent<Image>().color = featherColors[1];
-        } else if (checkpoint == 1 && pointsToAdd + featherPoints > 100){
+            GameManager.Instance.feathers[0].SetActive(false);
+            GameManager.Instance.feathers[1].SetActive(true);
+            GameManager.Instance.barFillPermanent.GetComponent<Image>().color = GameManager.Instance.featherColors[1];
+            GameManager.Instance.TriggerShake();
+        } else if (checkpoint == 1 && pointsToAdd + featherPoints >= 100){
             checkpoint = 2;
-            feathers[1].SetActive(false);
-            feathers[2].SetActive(true);
-            barFillPermanent.GetComponent<Image>().color = featherColors[2];
-        } else if (checkpoint == 2 && pointsToAdd + featherPoints > 150){
+            GameManager.Instance.feathers[1].SetActive(false);
+            GameManager.Instance.feathers[2].SetActive(true);
+            GameManager.Instance.barFillPermanent.GetComponent<Image>().color = GameManager.Instance.featherColors[2];
+            GameManager.Instance.TriggerShake();
+        } else if (checkpoint == 2 && pointsToAdd + featherPoints >= 150){
             checkpoint = 3;
-            feathers[2].SetActive(false);
-            feathers[3].SetActive(true);
-            barFillPermanent.GetComponent<Image>().color = featherColors[3];
+            GameManager.Instance.feathers[2].SetActive(false);
+            GameManager.Instance.feathers[3].SetActive(true);
+            GameManager.Instance.barFillPermanent.GetComponent<Image>().color = GameManager.Instance.featherColors[3];
+            GameManager.Instance.TriggerShake();
         }
     }
 }
