@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73be88a17dd4d9b4ebb9bc42c7cd4a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fjer: {fileID: 7757910682085796018, guid: f8bbe02aff40eea43978cf54523a3222, type: 3}
+  fjer: {fileID: 7757910682085796018, guid: adca9daa861404fc4904993ae5ea7c4b, type: 3}
   lvl1Feather: {fileID: -4963450037032944138, guid: 3e8b7975e75030348a3a7119705cfed5, type: 3}
   lvl2Feather: {fileID: -5689349356848017734, guid: 31a1f2c31ab1a014990fead000618e0e, type: 3}
   lvl3Feather: {fileID: -6488394791083338818, guid: e1304aa6467c9cc4a96e101573114690, type: 3}
