@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/prefabs/FlyingScreen.prefab.meta
 guid: b8cde921be36269449f6c8a1ca32c65f
+========
+guid: 8a08ce36567fe49ff8889d6c98eb008f
+>>>>>>>> main:Assets/prefabs/PopUpText.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
