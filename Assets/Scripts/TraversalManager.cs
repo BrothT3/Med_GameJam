@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -125,5 +126,15 @@ public class TraversalManager : MonoBehaviour
 
 
         }
+        
+    }
+    public void DestroyTubes()
+    {
+        int tubecount = objects.Count;
+        for(int i = 0; i< tubecount; i++)
+        {
+            Destroy(objects[i]);
+        }
+        objects.Clear();
     }
 }

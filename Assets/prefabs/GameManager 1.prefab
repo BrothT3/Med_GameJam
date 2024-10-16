@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0321a3dadf4d682439fec583d90bd33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screen: {fileID: 0}
 --- !u!1 &8109375359737587623
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,12 +275,13 @@ MonoBehaviour:
   enterCheckPointState: {fileID: 0}
   menuState: {fileID: 5804761810649691740}
   flyingState: {fileID: 885687950938995023}
-  FinaleState: {fileID: 0}
+  FinaleState: {fileID: 4354511986882795030}
   TM: {fileID: 0}
-  PlayerPrefab: {fileID: 0}
+  PlayerPrefab: {fileID: 8227654865000435954, guid: eb8a0d32b9bf29642ae810f8749bb90e, type: 3}
   Player: {fileID: 8227654865000435954, guid: eb8a0d32b9bf29642ae810f8749bb90e, type: 3}
   Level: 0
-  FlyingScreen: {fileID: 9124588958404470335, guid: b8cde921be36269449f6c8a1ca32c65f, type: 3}
-  CheckPointScreen: {fileID: 0}
+  FlyingScreen: {fileID: 9124588958404470335, guid: 264829f9692981d408d38a535612cc00, type: 3}
+  CheckPointScreen: {fileID: 8474880674899242539, guid: a42d7d1167961a24d96c5b74ae306085, type: 3}
   blackScreenAnim: {fileID: 0}
   FadeOutComplete: 0
+  FadeInComplete: 0

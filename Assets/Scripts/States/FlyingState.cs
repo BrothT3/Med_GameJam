@@ -10,6 +10,7 @@ public class FlyingState : State
 {
     public override void End()
     {
+        GameManager.Instance.TM.DestroyTubes();
         GameManager.Instance.Level++;
     }
 
