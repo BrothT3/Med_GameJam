@@ -14,6 +14,7 @@ public class LightCollision : MonoBehaviour
     void Start()
     {
         bc = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
