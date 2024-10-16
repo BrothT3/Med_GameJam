@@ -7,7 +7,7 @@ public class LightCollision : MonoBehaviour
 {
     // Start is called before the first frame update
     BoxCollider2D bc;
-    int featherPoints;
+    public int featherPoints;
     private bool tubeContact;
     float pointsToAdd = 0;
     public Animator anim;

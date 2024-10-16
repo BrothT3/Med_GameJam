@@ -11,19 +11,39 @@ public class TraversalManager : MonoBehaviour
     public int Tubes;
     public float tubeSpeed;
     public float SplineDifference;
-
+    private int defaultTubes;
+    private float defaultTubeSpeed;
+    private float defaultSplineDifference;
+    public bool LevelDone;
+    public float FadeTimer;
     void Start()
     {
-        
+
+    }
+    private void Awake()
+    {
+        defaultTubes = Tubes;
+        defaultSplineDifference = SplineDifference;
+        defaultTubeSpeed = tubeSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
 
     }
-
+    public void AdjustLevel(int level)
+    {
+        if (level == 0)
+            return;
+        else
+        {
+            tubeSpeed = defaultTubeSpeed * (1 + (level / 10));
+            Tubes = defaultTubes * (1 + (level / 10));
+            SplineDifference = defaultSplineDifference * (1 + (level / 20));
+        }
+    }
 
     public void SelectObstacle()
     {
@@ -53,7 +73,22 @@ public class TraversalManager : MonoBehaviour
         {
             obInd++;
             SelectObstacle();
+
         }
+        else if (Camera.main.WorldToScreenPoint(obPos).x < -785)
+        {
+            GameManager.Instance.blackScreenAnim.SetTrigger("FadeOut");
+            // GameManager.Instance.Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            Vector3 Pos = GameManager.Instance.Player.transform.position;
+            Pos = new Vector3(Pos.x + 0.15f, Pos.y, Pos.z);
+            GameManager.Instance.Player.transform.position = Pos;
+            if (Camera.main.WorldToScreenPoint(Pos).x > Screen.width + 200)
+            {
+                    GameManager.Instance.ChangeState(GameManager.Instance.enterCheckPointState);
+            }
+        }
+
+
     }
     public void GenerateTubes()
     {
@@ -64,7 +99,7 @@ public class TraversalManager : MonoBehaviour
             SpriteShapeController ssc = to.GetComponent<SpriteShapeController>();
             float ypos = ssc.spline.GetPosition(1).y;
 
-        
+
 
             for (int j = 0; j < 5; j++)
             {
@@ -78,7 +113,7 @@ public class TraversalManager : MonoBehaviour
                 //    Debug.Log(j + ":"+Camera.main.WorldToScreenPoint(new Vector3(0, ypos, 0)).y);
 
                 float topBoundary = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height - Screen.height / 4 - 65f, 0)).y;
-                float bottomBoundary = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height / 4+65, 0)).y;
+                float bottomBoundary = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height / 4 + 65, 0)).y;
 
                 ypos = Mathf.Clamp(ypos, bottomBoundary, topBoundary);
 

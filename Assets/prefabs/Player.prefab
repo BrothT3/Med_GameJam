@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 35537161035874330}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   maxTiltAngle: 30
   tiltSpeed: 20
   anim: {fileID: 35537161035874330}
+  MovingPermitted: 0
 --- !u!50 &383900001321867880
 Rigidbody2D:
   serializedVersion: 4

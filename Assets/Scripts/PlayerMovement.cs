@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxTiltAngle;
     public float tiltSpeed;
     public Animator anim;
-
+    public bool MovingPermitted;
     // Start is called before the first frame update
 
     private void Update()
@@ -87,5 +87,6 @@ public class PlayerMovement : MonoBehaviour
         // Apply the new rotation to the player object (on the z-axis for 2D)
         transform.rotation = Quaternion.Euler(0, 0, newTiltAngle);
     }
+
 
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-public class CheckPointState : State
+public class FinaleState : State
 {
     public override void End()
     {

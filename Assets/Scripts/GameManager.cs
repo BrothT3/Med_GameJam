@@ -6,11 +6,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public State currentState;
-    public CheckPointState checkPointState;
+    public ExitCheckPointState exitCheckPointState;
+    public EnterCheckPointState enterCheckPointState;
     public MenuState menuState;
     public FlyingState flyingState;
+    public FinaleState FinaleState;
     public TraversalManager TM;
+    public GameObject PlayerPrefab;
     public GameObject Player;
+    public int Level = 0;
+    public GameObject FlyingScreen;
+    public GameObject CheckPointScreen;
+    public Animator blackScreenAnim;
+    public bool FadeOutComplete;
+    public bool FadeInComplete;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -30,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         state.Execute();
     }
-    void ChangeState(State state)
+    public void ChangeState(State state)
     {
         if (currentState != null)
             currentState.End();
