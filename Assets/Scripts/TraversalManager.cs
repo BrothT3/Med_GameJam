@@ -50,7 +50,7 @@ public class TraversalManager : MonoBehaviour
 
         Vector3 obPos = new Vector3(objects[obInd].transform.position.x - tubeSpeed, objects[obInd].transform.position.y, 0);
         objects[obInd].transform.position = obPos;
-        if (Camera.main.WorldToScreenPoint(obPos).x < -800 && obInd + 1 < objects.Count)
+        if (Camera.main.WorldToScreenPoint(obPos).x < -500 && obInd + 1 < objects.Count)
         {
             obInd++;
             SelectObstacle();
