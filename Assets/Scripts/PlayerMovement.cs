@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && spaceReleased || Input.GetKeyDown(KeyCode.Mouse0) && spaceReleased)
         {
             spaceReleased = false;
+            jumpSound.pitch = Random.Range(0.89f, 1.11f);
             jumpSound.Play();
 
             PlayerAddForce();
