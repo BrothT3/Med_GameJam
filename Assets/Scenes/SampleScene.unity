@@ -518,6 +518,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5586878208105160160, guid: 9a42f57e8571c427b83a9fa774ce740b, type: 3}
   m_PrefabInstance: {fileID: 186646181}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &929826408 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4354511986882795030, guid: eb2bea34a00511941909e70762859b5f, type: 3}
+  m_PrefabInstance: {fileID: 7234443141594353970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734ca6b6d5016ef4f8502592850a9b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1283977710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1239,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8213723438176139922, guid: 1cd8b039447abe94493b68670f9d47b4, type: 3}
+      propertyPath: LevelDone
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213723438176139922, guid: 1cd8b039447abe94493b68670f9d47b4, type: 3}
       propertyPath: tubeSpeed
       value: 0.15
       objectReference: {fileID: 0}
@@ -1630,6 +1645,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2035953259}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
+      propertyPath: kite
+      value: 
+      objectReference: {fileID: 5609388299254377954, guid: c0ef8dbc342a65a469c7cd7b69c0b5ea, type: 3}
+    - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: scoreBar
       value: 
       objectReference: {fileID: 841120974339063322}
@@ -1640,7 +1659,7 @@ PrefabInstance:
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: FinaleState
       value: 
-      objectReference: {fileID: 1614788236}
+      objectReference: {fileID: 929826408}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: FinaleScreen
       value: 

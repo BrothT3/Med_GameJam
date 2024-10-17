@@ -4,18 +4,36 @@ using UnityEngine;
 
 public class Kite : MonoBehaviour
 {
-    public List<GameObject> Feathers1 = new List<GameObject>();
-    public List<GameObject> Feathers2 = new List<GameObject>();
-    public List<GameObject> Feathers3 = new List<GameObject>();
-    // Start is called before the first frame update
+    public GameObject rowStart;
+    public GameObject TestFjer;
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+
+    }
+
+    public void PlaceFeathers()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                GameObject feather = Instantiate(TestFjer, transform);
+                TestFjer.GetComponent<FjerMovement>().checkFeather = false;
+                
+                TestFjer.GetComponent<SpriteRenderer>().sprite = GameManager.Instance.featherResults[j].GetComponent<SpriteRenderer>().sprite;
+
+                feather.transform.position = new Vector2(rowStart.transform.position.x + (0.9f*j), rowStart.transform.position.y + (0.9f*i));
+                feather.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+                feather.gameObject.SetActive(true);
+            }
+
+
+        }
     }
 }

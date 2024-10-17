@@ -44,6 +44,9 @@ public class FinaleState : State
         GameManager.Instance.Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         GameManager.Instance.blackScreenAnim.ResetTrigger("FadeOut");
         GameManager.Instance.blackScreenAnim.SetTrigger("FadeIn");
+        GameObject k = Instantiate(GameManager.Instance.kite);
+        k.transform.position = new Vector2(5, -3.5f);
+        k.GetComponent<Kite>().PlaceFeathers();
     }
 }
 

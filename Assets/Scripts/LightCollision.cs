@@ -15,6 +15,7 @@ public class LightCollision : MonoBehaviour
     public Animator anim;
     [SerializeField] private int checkpoint;
     [SerializeField] private GameObject popUpTextPrefab;
+    
 
     private void Start(){
         bc = GetComponent<BoxCollider2D>();
