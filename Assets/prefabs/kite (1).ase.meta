@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b62a255b90f865a43b63f92635944921
+guid: 7ee12a7f625eeef49b19f3b0de9d16d2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,9 +121,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: kite
+  - name: kite (1)
     originalName: 
-    pivot: {x: 0.5121951, y: -0.26829267}
+    pivot: {x: 0.5121951, y: -0.9259259}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -131,8 +131,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 41
-      height: 82
-    spriteID: a6ace101608ada24aa23ea706e87e6f1
+      height: 54
+    spriteID: 8fa69326f5160a9448dada8b81c00380
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,21 +144,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1754434949
-    name: kite
+    guid: -355774057
+    name: kite (1)
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: kite
+    - name: kite (1)
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 43
-        y: 22
+        y: 50
         width: 41
-        height: 82
-      spriteId: a6ace101608ada24aa23ea706e87e6f1
+        height: 54
+      spriteId: 8fa69326f5160a9448dada8b81c00380
     linkedCells: []
     parentIndex: -1
   platformSettings:

@@ -55,7 +55,9 @@ public class GodCheckpoint : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Instantiate(SelectFeather(), transform.position, transform.rotation);
+            var go = Instantiate(SelectFeather(), transform.position, transform.rotation);
+            go.GetComponent<FjerMovement>().checkFeather = true;
+            GameManager.Instance.featherResults.Add(go);
         }
     }
 }
