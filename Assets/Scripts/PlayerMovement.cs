@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && spaceReleased || Input.GetKeyDown(KeyCode.Mouse0) && spaceReleased)
         {
+            if (GameManager.Instance.inCheckpoint) return;
+
             spaceReleased = false;
             jumpSound.pitch = Random.Range(0.89f, 1.11f);
             jumpSound.Play();
@@ -48,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         if (GetComponent<Rigidbody2D>().velocity.magnitude > maxSpeed)
         {
             GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * maxSpeed;
-            Debug.Log(GetComponent<Rigidbody2D>().velocity.y);
         }
     }
 

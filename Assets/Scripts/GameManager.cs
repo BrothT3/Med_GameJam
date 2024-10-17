@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public bool inCheckpoint;
     public EnterCheckPointState enterCheckPointState;
     public FlyingState flyingState;
     public FinaleState FinaleState;

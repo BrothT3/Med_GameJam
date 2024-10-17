@@ -46,6 +46,7 @@ public class FlyingState : State
         GameManager.Instance.TM.AdjustLevel(GameManager.Instance.Level);
         GameManager.Instance.TM.GenerateTubes();
         GameManager.Instance.TM.SelectObstacle();
+        GameManager.Instance.inCheckpoint = false;
     }
 }
 

@@ -45,6 +45,7 @@ public class EnterCheckPointState : State
         GameManager.Instance.Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         GameManager.Instance.blackScreenAnim.ResetTrigger("FadeOut");
         GameManager.Instance.blackScreenAnim.SetTrigger("FadeIn");
+        GameManager.Instance.inCheckpoint = true;
     }
 }
 
