@@ -13,7 +13,7 @@ public class FlyingState : State
 
     public override void End()
     {
-        Screen.SetActive(false);
+        flyingScreen.SetActive(false);
         GameManager.Instance.TM.DestroyTubes();
         GameManager.Instance.Level++;
         flyingScreen.SetActive(false);
