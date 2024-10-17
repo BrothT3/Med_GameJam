@@ -10,7 +10,7 @@ using static UnityEditor.PlayerSettings;
 #endif
 
 
-public class FinaleState : State
+public class EndCutsceneState : State
 {
     GameObject finaleScreen;
     public override void End()
@@ -26,7 +26,6 @@ public class FinaleState : State
             Debug.Log(Pos.x);
             GameManager.Instance.Player.GetComponent<LightCollision>().anim.SetTrigger("SitOnTree");
             GameManager.Instance.Player.transform.position = new Vector3(Pos.x, -4.49f, 0);
-            
         }
         else if (GameManager.Instance.FadeOutComplete)
         {

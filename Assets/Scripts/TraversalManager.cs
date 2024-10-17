@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.U2D;
 
 public class TraversalManager : MonoBehaviour
@@ -67,8 +68,8 @@ public class TraversalManager : MonoBehaviour
     {
         if (objects.Count <= 0)
             return;
-
-        Vector3 obPos = new Vector3(objects[obInd].transform.position.x - tubeSpeed, objects[obInd].transform.position.y, 0);
+        float movement = tubeSpeed * Time.deltaTime;
+        Vector3 obPos = new Vector3(objects[obInd].transform.position.x - movement, objects[obInd].transform.position.y, 0);
         objects[obInd].transform.position = obPos;
         if (Camera.main.WorldToScreenPoint(obPos).x < -785 && obInd + 1 < objects.Count)
         {
@@ -81,7 +82,7 @@ public class TraversalManager : MonoBehaviour
             GameManager.Instance.blackScreenAnim.SetTrigger("FadeOut");
             // GameManager.Instance.Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             Vector3 Pos = GameManager.Instance.Player.transform.position;
-            Pos = new Vector3(Pos.x + 0.15f, Pos.y, Pos.z);
+            Pos = new Vector3(Pos.x + 0.45f * Time.deltaTime, Pos.y, Pos.z);
             GameManager.Instance.Player.transform.position = Pos;
             if (Camera.main.WorldToScreenPoint(Pos).x > Screen.width + 200)
             {

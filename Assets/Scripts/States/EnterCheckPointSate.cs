@@ -19,7 +19,7 @@ public class EnterCheckPointState : State
         if (GameManager.Instance.FadeOutComplete)
         {
 
-            Pos = new Vector3(Pos.x + 0.09f, Pos.y, Pos.z);
+            Pos = new Vector3(Pos.x + 0.6f * Time.deltaTime, Pos.y, Pos.z);
             GameManager.Instance.Player.transform.position = Pos;
         }
         if (Camera.main.WorldToScreenPoint(Pos).x > Screen.width + 100)
