@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class EnterCheckPointState : State
 {
-    public GameObject screen;
+    public GameObject checkScreen;
     public override void End()
     {
-        screen.SetActive(false);
+        checkScreen.SetActive(false);
     }
 
     public override void Execute()
@@ -37,10 +37,10 @@ public class EnterCheckPointState : State
 
     public override void Init()
     {
-        if (screen == null)
-            screen = Instantiate(GameManager.Instance.CheckPointScreen);
+        if (checkScreen == null)
+            checkScreen = Instantiate(GameManager.Instance.CheckPointScreen);
         else
-            screen.SetActive(true);
+            checkScreen.SetActive(true);
         GameManager.Instance.Player.transform.position = new Vector3(-10.50f, 0, 0);
         GameManager.Instance.Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         GameManager.Instance.blackScreenAnim.ResetTrigger("FadeOut");

@@ -12,7 +12,7 @@ public class LightCollision : MonoBehaviour
     public int featherPoints;
     private bool tubeContact;
     float pointsToAdd = 0;
-    private Animator anim;
+    public Animator anim;
     [SerializeField] private int checkpoint;
     [SerializeField] private GameObject popUpTextPrefab;
 
