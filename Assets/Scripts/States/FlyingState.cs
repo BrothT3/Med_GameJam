@@ -8,8 +8,10 @@ using UnityEngine;
 
 public class FlyingState : State
 {
+    GameObject Screen;
     public override void End()
     {
+        Screen.SetActive(false);
         GameManager.Instance.TM.DestroyTubes();
         GameManager.Instance.Level++;
     }
@@ -23,17 +25,21 @@ public class FlyingState : State
     public override void Init()
     {
         GameManager.Instance.blackScreenAnim.ResetTrigger("FadeOut");
-        
+
         if (GameManager.Instance.Player == null)
             GameManager.Instance.Player = Instantiate(GameManager.Instance.PlayerPrefab);
         else
         {
             GameManager.Instance.Player.transform.position = new Vector3(-6, 0, 1);
             GameManager.Instance.Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-            
+
         }
-            
-        Instantiate(GameManager.Instance.FlyingScreen);
+        if (Screen == null)
+            Screen = Instantiate(GameManager.Instance.FlyingScreen);
+        else
+        {
+             Screen.SetActive(true);
+        }
         GameManager.Instance.TM.AdjustLevel(GameManager.Instance.Level);
         GameManager.Instance.TM.GenerateTubes();
         GameManager.Instance.TM.SelectObstacle();

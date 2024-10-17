@@ -32,19 +32,19 @@ public class GodCheckpoint : MonoBehaviour
         feather.GetComponent<SpriteRenderer>().sprite = lvl1Feather;
         switch (RoundScore)
         {
-            case int n when n <25:
+            case int n when n <50:
                 feather.GetComponent<SpriteRenderer>().sprite = lvl1Feather;
                 feather.GetComponent<FjerMovement>().hand = DarkHand.transform;
                 break;
-            case int n when n < 50:
+            case int n when n < 100:
                 feather.GetComponent<SpriteRenderer>().sprite = lvl2Feather;
                 feather.GetComponent<FjerMovement>().hand = DarkHand.transform;
                 break;
-            case int n when n < 75:
+            case int n when n < 150:
                 feather.GetComponent<SpriteRenderer>().sprite = lvl3Feather;
                 feather.GetComponent<FjerMovement>().hand = LightHand.transform;
                 break;
-            case int n when n < 100:
+            case int n when n > 151:
                 feather.GetComponent<SpriteRenderer>().sprite = lvl4Feather;
                 feather.GetComponent<FjerMovement>().hand = LightHand.transform;
                 break;
