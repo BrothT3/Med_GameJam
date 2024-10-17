@@ -27,7 +27,7 @@ public class EnterCheckPointState : State
             GameManager.Instance.blackScreenAnim.SetTrigger("FadeOut");
             if (GameManager.Instance.FadeOutComplete )
             {
-                if (GameManager.Instance.Level < 2)
+                if (GameManager.Instance.Level < 3)
                     GameManager.Instance.ChangeState(GameManager.Instance.flyingState);
                 else
                     GameManager.Instance.ChangeState(GameManager.Instance.FinaleState);

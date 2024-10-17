@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject FlyingScreen;
     public GameObject CheckPointScreen;
     public GameObject FinaleScreen;
+    public GameObject kite;
     [Space(5)]
     public RectTransform barFillTemporary;
     public RectTransform barFillPermanent;
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     private MenuState menuState;
     private ExitCheckPointState exitCheckPointState;
     private Vector3 originalPos;
-    
+    public List<GameObject> featherResults;
 
     private void Awake()
     {

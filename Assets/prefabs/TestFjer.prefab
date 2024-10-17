@@ -73,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -4963450037032944138, guid: 3e8b7975e75030348a3a7119705cfed5, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -5689349356848017734, guid: 31a1f2c31ab1a014990fead000618e0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,3 +100,4 @@ MonoBehaviour:
   hand: {fileID: 0}
   fjerSpeed: 2
   rotationSpeed: 100
+  checkFeather: 0
