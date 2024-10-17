@@ -1161,7 +1161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8213723438176139922, guid: 1cd8b039447abe94493b68670f9d47b4, type: 3}
       propertyPath: Tubes
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8213723438176139922, guid: 1cd8b039447abe94493b68670f9d47b4, type: 3}
       propertyPath: tubeSpeed
@@ -1580,6 +1580,10 @@ PrefabInstance:
       propertyPath: FinaleState
       value: 
       objectReference: {fileID: 1614788236}
+    - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
+      propertyPath: FinaleScreen
+      value: 
+      objectReference: {fileID: 3058601898732452693, guid: 842c8f9a700b22849b27c78097304e46, type: 3}
     - target: {fileID: 1776498533696336749, guid: eb2bea34a00511941909e70762859b5f, type: 3}
       propertyPath: PlayerPrefab
       value: 

@@ -8,12 +8,15 @@ using UnityEngine;
 
 public class FlyingState : State
 {
-    GameObject Screen;
+
+    GameObject flyingScreen;
+
     public override void End()
     {
         Screen.SetActive(false);
         GameManager.Instance.TM.DestroyTubes();
         GameManager.Instance.Level++;
+        flyingScreen.SetActive(false);
     }
 
     public override void Execute()
@@ -33,13 +36,13 @@ public class FlyingState : State
             GameManager.Instance.Player.transform.position = new Vector3(-6, 0, 1);
             GameManager.Instance.Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
 
+
         }
-        if (Screen == null)
-            Screen = Instantiate(GameManager.Instance.FlyingScreen);
+        if (flyingScreen == null)
+            flyingScreen = Instantiate(GameManager.Instance.FlyingScreen);
         else
-        {
-             Screen.SetActive(true);
-        }
+            flyingScreen.SetActive(true);
+
         GameManager.Instance.TM.AdjustLevel(GameManager.Instance.Level);
         GameManager.Instance.TM.GenerateTubes();
         GameManager.Instance.TM.SelectObstacle();
