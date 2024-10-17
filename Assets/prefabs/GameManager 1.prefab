@@ -270,18 +270,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9c8c4f95209bd4884916eb2e3baa8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
-  exitCheckPointState: {fileID: 0}
-  enterCheckPointState: {fileID: 0}
-  menuState: {fileID: 5804761810649691740}
+  enterCheckPointState: {fileID: 7020414579995441058}
   flyingState: {fileID: 885687950938995023}
   FinaleState: {fileID: 4354511986882795030}
   TM: {fileID: 0}
   PlayerPrefab: {fileID: 8227654865000435954, guid: eb8a0d32b9bf29642ae810f8749bb90e, type: 3}
-  Player: {fileID: 8227654865000435954, guid: eb8a0d32b9bf29642ae810f8749bb90e, type: 3}
-  Level: 0
   FlyingScreen: {fileID: 9124588958404470335, guid: 264829f9692981d408d38a535612cc00, type: 3}
   CheckPointScreen: {fileID: 8474880674899242539, guid: a42d7d1167961a24d96c5b74ae306085, type: 3}
+  barFillTemporary: {fileID: 0}
+  barFillPermanent: {fileID: 0}
+  scoreBar: {fileID: 0}
   blackScreenAnim: {fileID: 0}
+  scoreText: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  barShakeSound: {fileID: 0}
+  feathers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  featherColors:
+  - {r: 0.27556297, g: 0.078097194, b: 0.4245283, a: 1}
+  - {r: 0.5188679, g: 0.22562306, b: 0.080767184, a: 1}
+  - {r: 0.83921576, g: 0.427451, b: 0.14509805, a: 1}
+  - {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   FadeOutComplete: 0
   FadeInComplete: 0
+  Player: {fileID: 0}
+  Level: 0
