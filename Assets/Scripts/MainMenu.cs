@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviour{
     [SerializeField] private AudioMixer mainMixer;
     [SerializeField] private Slider audioSlider;
     [SerializeField] private AudioSource mainMenuMusic;
+    [SerializeField] private GameObject bondFire;
+    private bool isZooming;
     private bool isTransitioning;
 
     private void Start(){
@@ -34,6 +36,12 @@ public class MainMenu : MonoBehaviour{
         } else if (mainMenuMusic.volume >= 0 && isTransitioning){
             mainMenuMusic.volume = Mathf.MoveTowards(mainMenuMusic.volume, 0f, 1.5f * Time.deltaTime);
         }
+
+        if (isZooming){
+            // Zoom in
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 0.01f, Time.deltaTime * 5);
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(4.2f, 0.78f, 0), Time.deltaTime * 5);
+        }
     }
 
     public void Play(){
@@ -42,6 +50,14 @@ public class MainMenu : MonoBehaviour{
     }
 
     private IEnumerator PlayCoroutine(){
+        bondFire.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        isZooming = true;
+
+        yield return new WaitForSeconds(1f);
+
         blackScreen.SetTrigger("FadeOut");
 
         yield return new WaitForSeconds(1f);
