@@ -17,6 +17,7 @@ public class FlyingState : State
         GameManager.Instance.TM.DestroyTubes();
         GameManager.Instance.Level++;
         flyingScreen.SetActive(false);
+        GameManager.Instance.TM.obInd = 0;
     }
 
     public override void Execute()
