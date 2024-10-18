@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   featherPoints: 0
+  anim: {fileID: 0}
   checkpoint: 0
   popUpTextPrefab: {fileID: 2371141226523933579, guid: fb9cb4a48e32ddc4fba1026d665ed3aa, type: 3}
 --- !u!212 &6971359723068287070
@@ -309,7 +310,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 1
 --- !u!61 &6699987597461126741
 BoxCollider2D:
