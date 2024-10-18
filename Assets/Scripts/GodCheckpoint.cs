@@ -29,6 +29,7 @@ public class GodCheckpoint : MonoBehaviour
         }
         GameManager.Instance.feathers[0].SetActive(true);
         GameManager.Instance.barFillPermanent.GetComponent<Image>().color = GameManager.Instance.featherColors[0];
+        GameManager.Instance.Player.GetComponent<LightCollision>().checkpoint = 0;
 
         switch (RoundScore)
         {
