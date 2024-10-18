@@ -1234,22 +1234,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Traversal manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8213723438176139922, guid: 1cd8b039447abe94493b68670f9d47b4, type: 3}
-      propertyPath: Tubes
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8213723438176139922, guid: 1cd8b039447abe94493b68670f9d47b4, type: 3}
-      propertyPath: LevelDone
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8213723438176139922, guid: 1cd8b039447abe94493b68670f9d47b4, type: 3}
-      propertyPath: tubeSpeed
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8213723438176139922, guid: 1cd8b039447abe94493b68670f9d47b4, type: 3}
-      propertyPath: SplineDifference
-      value: 1.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

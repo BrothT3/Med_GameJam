@@ -44,7 +44,7 @@ public class MainMenu : MonoBehaviour{
         if (mainMenuMusic.volume < 1 && !isTransitioning){
             mainMenuMusic.volume = Mathf.MoveTowards(mainMenuMusic.volume, 1f, 1f * Time.deltaTime);
         } else if (mainMenuMusic.volume >= 0 && isTransitioning){
-            mainMenuMusic.volume = Mathf.MoveTowards(mainMenuMusic.volume, 0f, 1.5f * Time.deltaTime);
+            mainMenuMusic.volume = Mathf.MoveTowards(mainMenuMusic.volume, 0f, 1f * Time.deltaTime);
         }
 
         if (isZooming){

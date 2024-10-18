@@ -48,4 +48,7 @@ MonoBehaviour:
   obInd: 0
   TubeObj: {fileID: 5597575841238077648, guid: 98d83ddff4dd38e44ac5acba6d1d54cc, type: 3}
   Tubes: 10
-  tubeSpeed: 0.15
+  tubeSpeed: 1
+  SplineDifference: 1.1
+  LevelDone: 0
+  FadeTimer: 0

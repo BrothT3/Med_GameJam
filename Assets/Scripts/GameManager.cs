@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     private ExitCheckPointState exitCheckPointState;
     private Vector3 originalPos;
     public List<GameObject> featherResults;
+    public int combinedScore;
 
     private void Awake()
     {

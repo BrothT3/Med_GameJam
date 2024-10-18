@@ -18,6 +18,7 @@ public class GodCheckpoint : MonoBehaviour
     GameObject SelectFeather()
     {
         int RoundScore = GameManager.Instance.Player.GetComponent<LightCollision>().featherPoints;
+        GameManager.Instance.combinedScore += RoundScore;
         GameManager.Instance.Player.GetComponent<LightCollision>().featherPoints = 0;
         GameObject feather = fjer;
         feather.GetComponent<SpriteRenderer>().sprite = lvl1Feather;

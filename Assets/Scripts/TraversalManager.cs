@@ -28,12 +28,6 @@ public class TraversalManager : MonoBehaviour
         defaultTubeSpeed = tubeSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
     public void AdjustLevel(int level)
     {
         if (level == 0)
