@@ -45,16 +45,16 @@ public class MainMenu : MonoBehaviour{
     }
 
     public void Play(){
-        isTransitioning = true;
         StartCoroutine(PlayCoroutine());
     }
 
     private IEnumerator PlayCoroutine(){
         bondFire.SetActive(true);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         isZooming = true;
+        isTransitioning = true;
 
         yield return new WaitForSeconds(1f);
 
