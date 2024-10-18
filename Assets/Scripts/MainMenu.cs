@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
+using TMPro;
 
 public class MainMenu : MonoBehaviour{
 
@@ -19,6 +20,8 @@ public class MainMenu : MonoBehaviour{
     [SerializeField] private Slider audioSlider;
     [SerializeField] private AudioSource mainMenuMusic;
     [SerializeField] private GameObject bondFire;
+    [SerializeField] private GameObject highscoreUI;
+    [SerializeField] private TextMeshProUGUI highscoreText;
     private bool isZooming;
     private bool isTransitioning;
 
@@ -27,6 +30,13 @@ public class MainMenu : MonoBehaviour{
             LoadVolume();
         } else {
             SetVolume();
+        }
+
+        if (PlayerPrefs.HasKey("Highscore")){
+            highscoreUI.SetActive(true);
+            highscoreText.text = PlayerPrefs.GetInt("Highscore").ToString();
+        } else {
+            highscoreUI.SetActive(false);
         }
     }
 
@@ -40,7 +50,7 @@ public class MainMenu : MonoBehaviour{
         if (isZooming){
             // Zoom in
             Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 0.01f, Time.deltaTime * 5);
-            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(4.2f, 0.78f, 0), Time.deltaTime * 5);
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(4.3f, 0.7f, 0), Time.deltaTime * 5);
         }
     }
 
