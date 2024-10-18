@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class EndCutscenes : MonoBehaviour{
@@ -8,8 +9,10 @@ public class EndCutscenes : MonoBehaviour{
     [SerializeField] private GameObject dancingMan;
     [SerializeField] private GameObject sleepingMan;
     [SerializeField] private Animator blackScreen;
+    [SerializeField] private Light2D globalLight;
 
     private bool isZooming;
+    private bool isChanging;
 
     // Start is called before the first frame update
     private void Start(){
@@ -22,6 +25,10 @@ public class EndCutscenes : MonoBehaviour{
             Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 4f, Time.deltaTime * 1.5f);
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(0.5f, 0f, -10), Time.deltaTime * 1.5f);
         }
+
+        if (isChanging){
+            globalLight.intensity = Mathf.Lerp(globalLight.intensity, 0.47f, Time.deltaTime * 1f);
+        }
     }
 
     private IEnumerator EndCutscenesCoroutine(){
@@ -29,7 +36,11 @@ public class EndCutscenes : MonoBehaviour{
 
         isZooming = true;
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+
+        isChanging = true;
+
+        yield return new WaitForSeconds(1f);
 
         dancingMan.GetComponent<Animator>().SetTrigger("Stop");
 
