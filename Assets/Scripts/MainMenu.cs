@@ -27,6 +27,8 @@ public class MainMenu : MonoBehaviour{
     private bool isTransitioning;
 
     private void Start(){
+        Screen.SetResolution(1920, 1080, true);
+
         if (PlayerPrefs.HasKey("AudioVolume")){
             LoadVolume();
         } else {
