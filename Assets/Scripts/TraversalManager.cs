@@ -67,8 +67,8 @@ public class TraversalManager : MonoBehaviour
     {
         if (objects.Count <= 0)
             return;
-
-        Vector3 obPos = new Vector3(objects[obInd].transform.position.x - tubeSpeed, objects[obInd].transform.position.y, 0);
+        var movement = (tubeSpeed * 10) * Time.deltaTime;
+        Vector3 obPos = new Vector3(objects[obInd].transform.position.x - movement, objects[obInd].transform.position.y, 0);
         objects[obInd].transform.position = obPos;
         if (Camera.main.WorldToScreenPoint(obPos).x < -785 && obInd + 1 < objects.Count)
         {
@@ -81,7 +81,8 @@ public class TraversalManager : MonoBehaviour
             GameManager.Instance.blackScreenAnim.SetTrigger("FadeOut");
             // GameManager.Instance.Player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             Vector3 Pos = GameManager.Instance.Player.transform.position;
-            Pos = new Vector3(Pos.x + 0.15f, Pos.y, Pos.z);
+            var posMovement = 8f * Time.deltaTime;
+            Pos = new Vector3(Pos.x + posMovement, Pos.y, Pos.z);
             GameManager.Instance.Player.transform.position = Pos;
             if (Camera.main.WorldToScreenPoint(Pos).x > Screen.width + 200)
             {

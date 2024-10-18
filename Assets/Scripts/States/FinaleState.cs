@@ -27,8 +27,8 @@ public class FinaleState : State
         }
         else if (GameManager.Instance.FadeOutComplete)
         {
-
-            Pos = new Vector3(Pos.x + 0.09f, Pos.y, Pos.z);
+            var posMovement = 4f * Time.deltaTime;
+            Pos = new Vector3(Pos.x + posMovement, Pos.y, Pos.z);
             GameManager.Instance.Player.transform.position = Pos;
         }
 

@@ -19,13 +19,14 @@ public class EnterCheckPointState : State
         if (GameManager.Instance.FadeOutComplete)
         {
 
-            Pos = new Vector3(Pos.x + 0.09f, Pos.y, Pos.z);
+            var posMovement = 6f * Time.deltaTime;
+            Pos = new Vector3(Pos.x + posMovement, Pos.y, Pos.z);
             GameManager.Instance.Player.transform.position = Pos;
         }
         if (Camera.main.WorldToScreenPoint(Pos).x > Screen.width + 100)
         {
             GameManager.Instance.blackScreenAnim.SetTrigger("FadeOut");
-            if (GameManager.Instance.FadeOutComplete )
+            if (GameManager.Instance.FadeOutComplete)
             {
                 if (GameManager.Instance.Level < 3)
                     GameManager.Instance.ChangeState(GameManager.Instance.flyingState);
