@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Playermovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && spaceReleased || Input.GetKeyDown(KeyCode.Mouse0) && spaceReleased)
+        if (Input.GetKeyDown(KeyCode.Space) && spaceReleased)
         {
             if (GameManager.Instance.inCheckpoint) return;
 

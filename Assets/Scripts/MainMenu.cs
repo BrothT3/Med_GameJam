@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour{
     [SerializeField] private GameObject bondFire;
     [SerializeField] private GameObject highscoreUI;
     [SerializeField] private TextMeshProUGUI highscoreText;
+    [SerializeField] private GameObject spacebar;
     private bool isZooming;
     private bool isTransitioning;
 
@@ -73,12 +74,14 @@ public class MainMenu : MonoBehaviour{
         yield return new WaitForSeconds(1f);
 
         loadingImage.GetComponent<Animator>().SetTrigger("FadeIn");
+        spacebar.GetComponent<Animator>().SetTrigger("FadeIn");
 
         // Fake Loading Screen
-        yield return new WaitForSeconds(Random.Range(1f, 2f)); // Random delay for loading screen effect
+        yield return new WaitForSeconds(5f); // Random delay for loading screen effect
 
         // After the scene is loaded, trigger fade-out animation
         loadingImage.GetComponent<Animator>().SetTrigger("FadeOut");
+        spacebar.GetComponent<Animator>().SetTrigger("FadeOut");
 
         yield return new WaitForSeconds(0.5f);
 
