@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour
     public RectTransform barFillTemporary;
     public RectTransform barFillPermanent;
     [SerializeField] private RectTransform scoreBar;
+    public GameObject treeBranch;
     [Space(5)]
     public Animator blackScreenAnim;
     [Space(5)]
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI totalScoreText;
     [Space(5)]
     [SerializeField] private AudioSource backgroundMusic;
     [SerializeField] private AudioSource barShakeSound;

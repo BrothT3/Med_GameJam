@@ -11,16 +11,13 @@ public class TraversalManager : MonoBehaviour
     public GameObject TubeObj;
     public int Tubes;
     public float tubeSpeed;
-    public float SplineDifference;
+    [Range(0.0f, 3.0f)] public float SplineDifference;
     private int defaultTubes;
     private float defaultTubeSpeed;
     private float defaultSplineDifference;
     public bool LevelDone;
     public float FadeTimer;
-    void Start()
-    {
 
-    }
     private void Awake()
     {
         defaultTubes = Tubes;
@@ -34,9 +31,9 @@ public class TraversalManager : MonoBehaviour
             return;
         else
         {
-            tubeSpeed = defaultTubeSpeed * (1 + (level / 10));
-            Tubes = defaultTubes * (1 + (level / 10));
-            SplineDifference = defaultSplineDifference * (1 + (level / 20));
+            tubeSpeed = defaultTubeSpeed;
+            Tubes = defaultTubes;
+            SplineDifference = defaultSplineDifference;
         }
     }
 
@@ -99,7 +96,7 @@ public class TraversalManager : MonoBehaviour
 
             for (int j = 0; j < 5; j++)
             {
-                ypos += Random.Range(-2f, 2f);
+                ypos += Random.Range(-SplineDifference, SplineDifference);
                 //    if (Camera.main.WorldToScreenPoint(new Vector3(0, ypos, 0)).y > Screen.height/2 + 50f)
                 //        ypos = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height - 150f, 0)).y;
                 //    if (Camera.main.WorldToScreenPoint(new Vector3(0, ypos, 0)).y < -(Screen.height/2))
@@ -118,8 +115,6 @@ public class TraversalManager : MonoBehaviour
             to.gameObject.SetActive(false);
             objects.Add(to);
             ypos += Random.Range(-SplineDifference, SplineDifference);
-
-
         }
         
     }

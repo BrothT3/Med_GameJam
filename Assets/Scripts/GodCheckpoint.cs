@@ -4,8 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GodCheckpoint : MonoBehaviour
-{
+public class GodCheckpoint : MonoBehaviour{
 
     public GameObject fjer;
     public Sprite lvl1Feather;
@@ -30,24 +29,29 @@ public class GodCheckpoint : MonoBehaviour
         GameManager.Instance.feathers[0].SetActive(true);
         GameManager.Instance.barFillPermanent.GetComponent<Image>().color = GameManager.Instance.featherColors[0];
         GameManager.Instance.Player.GetComponent<LightCollision>().checkpoint = 0;
+        GameManager.Instance.treeBranch.transform.GetChild(GameManager.Instance.Level - 1).transform.GetChild(0).gameObject.SetActive(false);
 
         switch (RoundScore)
         {
             case int n when n <50:
                 feather.GetComponent<SpriteRenderer>().sprite = lvl1Feather;
                 feather.GetComponent<FjerMovement>().hand = DarkHand.transform;
+                GameManager.Instance.treeBranch.transform.GetChild(GameManager.Instance.Level - 1).transform.GetChild(1).gameObject.SetActive(true);
                 break;
             case int n when n < 100:
                 feather.GetComponent<SpriteRenderer>().sprite = lvl2Feather;
                 feather.GetComponent<FjerMovement>().hand = DarkHand.transform;
+                GameManager.Instance.treeBranch.transform.GetChild(GameManager.Instance.Level - 1).transform.GetChild(2).gameObject.SetActive(true);
                 break;
             case int n when n < 150:
                 feather.GetComponent<SpriteRenderer>().sprite = lvl3Feather;
                 feather.GetComponent<FjerMovement>().hand = LightHand.transform;
+                GameManager.Instance.treeBranch.transform.GetChild(GameManager.Instance.Level - 1).transform.GetChild(3).gameObject.SetActive(true);
                 break;
             case int n when n > 151:
                 feather.GetComponent<SpriteRenderer>().sprite = lvl4Feather;
                 feather.GetComponent<FjerMovement>().hand = LightHand.transform;
+                GameManager.Instance.treeBranch.transform.GetChild(GameManager.Instance.Level - 1).transform.GetChild(4).gameObject.SetActive(true);
                 break;
         }
 

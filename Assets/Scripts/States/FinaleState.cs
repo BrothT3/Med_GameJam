@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Random=UnityEngine.Random;
+using Dan.Main;
 
 public class FinaleState : State
 {
@@ -24,15 +20,13 @@ public class FinaleState : State
         Vector3 Pos = GameManager.Instance.Player.transform.position;
         if (finaleScreen.GetComponent<FinalePoint>().Tree.transform.position.x - Pos.x < 1f)
         {
-            Debug.Log(Pos.x);
             GameManager.Instance.Player.GetComponent<LightCollision>().anim.SetTrigger("SitOnTree");
             GameManager.Instance.Player.transform.position = new Vector3(Pos.x, -4.49f, 0);
             if (!loadScene){
                 loadScene = true;
-                if (!PlayerPrefs.HasKey("Highscore")){
+                if (!PlayerPrefs.HasKey("Highscore") || PlayerPrefs.HasKey("Highscore") && GameManager.Instance.combinedScore > PlayerPrefs.GetInt("Highscore")){
                     PlayerPrefs.SetInt("Highscore", GameManager.Instance.combinedScore);
-                } else if (GameManager.Instance.combinedScore > PlayerPrefs.GetInt("Highscore")){
-                    PlayerPrefs.SetInt("Highscore", GameManager.Instance.combinedScore);
+                    SetLeaderboardEntry("User " + Random.Range(1000, 10000), GameManager.Instance.combinedScore);
                 }
                 StartCoroutine(LoadCutscene());
             }
@@ -43,6 +37,12 @@ public class FinaleState : State
             Pos = new Vector3(Pos.x + posMovement, Pos.y, Pos.z);
             GameManager.Instance.Player.transform.position = Pos;
         }
+    }
+
+    public void SetLeaderboardEntry(string username, int score){
+        LeaderboardCreator.UploadNewEntry("91695c89d9fc9f8a71297b6697ca92c329be0bc9f0515fe3a5a03ebd4488ba3d", username, score, ((msg) => {
+            Debug.Log("Created Entry");
+        }));
     }
 
     public override void Init()

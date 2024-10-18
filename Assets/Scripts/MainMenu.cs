@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
 using TMPro;
+using Dan.Main;
 
 public class MainMenu : MonoBehaviour{
 
@@ -23,6 +24,7 @@ public class MainMenu : MonoBehaviour{
     [SerializeField] private GameObject highscoreUI;
     [SerializeField] private TextMeshProUGUI highscoreText;
     [SerializeField] private GameObject spacebar;
+    [SerializeField] private List<TextMeshProUGUI> scores;
     private bool isZooming;
     private bool isTransitioning;
 
@@ -41,6 +43,8 @@ public class MainMenu : MonoBehaviour{
         } else {
             highscoreUI.SetActive(false);
         }
+
+        InvokeRepeating("GetLeaderboard", 0f, 5f);
     }
 
     private void Update(){
@@ -57,6 +61,17 @@ public class MainMenu : MonoBehaviour{
         }
     }
 
+    public void GetLeaderboard(){
+        if (isZooming) return;
+
+        LeaderboardCreator.GetLeaderboard("91695c89d9fc9f8a71297b6697ca92c329be0bc9f0515fe3a5a03ebd4488ba3d", ((msg) => {
+            int loopLength = (msg.Length < scores.Count) ? msg.Length : scores.Count;
+            for (int i = 0; i < loopLength; i++){
+                scores[i].text = msg[i].Score.ToString();
+            }
+        }));
+    }
+
     public void Play(){
         StartCoroutine(PlayCoroutine());
     }
@@ -65,6 +80,10 @@ public class MainMenu : MonoBehaviour{
         bondFire.SetActive(true);
 
         yield return new WaitForSeconds(1.5f);
+
+        for (int i = 0; i < scores.Count; i++){
+            scores[i].text = "";
+        }
 
         isZooming = true;
         isTransitioning = true;

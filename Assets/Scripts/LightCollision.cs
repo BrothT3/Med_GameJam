@@ -58,8 +58,12 @@ public class LightCollision : MonoBehaviour
     }
 
     public void AddFeatherScore(){
-        pointsToAdd += Time.deltaTime * 10f;
-        GameManager.Instance.scoreText.text = (pointsToAdd + featherPoints).ToString("0") + "/200";
+        pointsToAdd += Time.deltaTime * 12f;
+        if (pointsToAdd > 20.0f){
+            pointsToAdd = 20f;
+        }
+        GameManager.Instance.scoreText.text = ((int)pointsToAdd + featherPoints).ToString("0") + "/200";
+        GameManager.Instance.totalScoreText.text = ((int)pointsToAdd + featherPoints + GameManager.Instance.combinedScore).ToString("0");
         GameManager.Instance.barFillTemporary.sizeDelta = new Vector2((pointsToAdd + featherPoints) * 0.49f, 24);
         if (checkpoint == 0 && pointsToAdd + featherPoints >= 50){
             checkpoint = 1;
